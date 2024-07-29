@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p><a href="https://www.linkedin.com/in/savidhan-ambhore-411104246?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">SAVIDHAN AMBHORE</a></p>
+    </nav>
+
+    <section id="home">
+        <h1>Hi,</h1>
+        <h1>I'm <span>Savidhan</span></h1>
+        <h1>Software Engineer</h1>
+        <button class="contact-me">Contact Me</button>
+        <img src="drk blue.png" alt="">
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="bout">
+            <p>
+                Hello! I'm Savidhan Ambhore, an undergraduate student pursuing a degree in Electronics and Computer Science at Shah and Anchor Kuttchi Engineering College. As a passionate software and web developer, I enjoy crafting innovative and efficient solutions to real-world problems. My journey in technology began with a fascination for how things work, which naturally led me to explore the realms of programming and web development. Over time, I've developed a strong foundation in various programming languages and frameworks, constantly seeking to expand my knowledge and skill set. In addition to my academic pursuits, I have worked on several projects that have allowed me to apply my learning practically and collaborate with others. These experiences have not only honed my technical abilities but also strengthened my problem-solving skills and teamwork. I'm excited about the future and eager to contribute to impactful projects that leverage technology to make a difference. Thank you for visiting my portfolio, and I look forward to connecting with you!
+            </p>
+        </div>
+        <div class="contact-info">
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="tel:+1234567890"><i class="fas fa-phone"></i> Phone</a>
+        </div>
+        <div id="imagepng">
+            <img src="pngwing.com (2).png" alt="">
+        </div>
+    </section>
+
+    <section id="projects">
+        <h1>Projects</h1>
+        <div>
+            <h2>TRAVEL WEBSITE</h2>
+            <p>Travelicious is a visually appealing travel website project I developed using HTML and CSS. It showcases my front-end development skills and passion for creating engaging user experiences. With modern design principles, responsive layouts, and intuitive navigation, Travelicious simplifies trip planning and inspires wanderlust. This project highlights my ability to create captivating digital experiences in the travel industry</p>
+            <img src="PikPng.com_travel-png_477345.png" alt="">
+            <h2>LOST AND FOUND PORTAL</h2>
+            <p>The Lost and Found project is a web application I developed to simplify reporting lost items and facilitating their return. Created with HTML, CSS, and JavaScript, it showcases my full stack development skills and commitment to practical solutions for community needs. With features such as search functionality, notifications, and secure user authentication, the Lost and Found project prioritizes usability, efficiency, and data security</p>
+            <img src="pngegg.png" alt="">
+            <h2>MOVIE RECOMMENDATION SYSTEM</h2>
+            <p>The Movie Recommendations System project leverages data mining and machine learning techniques to provide personalized movie suggestions to users. Developed with Python and libraries such as pandas, scikit-learn, and TensorFlow, this project demonstrates my expertise in data analysis, machine learning, and recommendation systems. The project not only showcases my technical skills but also highlights my ability to apply cutting-edge technologies to real-world problems, ultimately delivering actionable insights and enhancing user experiences in the realm of entertainment and digital media.</p>
+            <img src="pngwing.com (3).png" alt="">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <p>I would love to hear from you!</p>
+            <form class="contact-form" action="#" method="post" id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h1>Email Address</h1>
+                <p>savidhanambhore9@gmail.com</p>
+            </div>
+            <div id="cimage">
+                <img src="—Pngtree—cartoon professional boy computer office_14082449.png" alt="Professional Boy at Computer">
+            </div>
+        </div>
+    </section>
+    
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Smooth scroll for Contact Me button
+const contactMeButton = document.querySelector('.contact-me');
+if (contactMeButton) {
+    contactMeButton.addEventListener('click', function() {
+        const target = document.querySelector('#contact');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
+
+// Form validation
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.querySelector('input[name="name"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const message = document.querySelector('textarea[name="message"]').value.trim();
+
+    if (name === '' || email === '' || message === '') {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    alert('Form submitted successfully!');
+    // Clear form fields after submission
+    document.getElementById('contact-form').reset();
+});
+
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return re.test(String(email).toLowerCase());
+}
+
+    </script>
+</body>
+
+</html>
